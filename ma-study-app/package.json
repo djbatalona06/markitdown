@@ -1,0 +1,12 @@
+{
+  "name": "ma-study-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline study app for Medical Assistants (3D anatomy, flashcards, quizzes, BSN/TEAS). The app itself needs no build or dependencies — this file only wires up the test suite.",
+  "scripts": {
+    "test": "node tests/content.test.js && node tests/routes.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  }
+}

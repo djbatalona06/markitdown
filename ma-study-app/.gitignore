@@ -1,0 +1,5 @@
+# Node test deps (the app itself needs no dependencies)
+node_modules/
+
+# Build-time doc pipeline scratch (generated locally by tools/)
+library/_raw/
