@@ -14,8 +14,11 @@ tracking: everything you create stays on your device.
   study modes: **Flashcards** (flip), **Learn** (spaced repetition), **Match** (timed),
   and **Test** (multiple choice). Progress saves on-device.
 - **🫀 3D anatomy** — interactive, draggable CSS-3D models (heart, skeleton, skull,
-  lungs, brain, kidney, animal cell, DNA). Tap labeled parts; jump to related flashcards.
-  Pure CSS 3D — no downloads, runs great offline on a phone.
+  lungs, brain, kidney, animal cell, DNA). Rotate, zoom, and pan; **toggle anatomical
+  layers** (e.g. heart chambers / vessels / valves), **explode** the model, hide labels,
+  or pause auto-spin. Tap labeled parts to identify them, and each topic ships a **fun
+  fact**, a **need-to-know tip**, and an **interactive practice question**. Pure CSS 3D —
+  no downloads, runs great offline on a phone.
 - **❓ Quizzes + opt-in weekly quiz** — subject quiz banks plus a **weekly quiz you can
   turn on or off**. The weekly quiz is the same all week and refreshes automatically.
 - **🗓️ Calendar** — add your own exams (including a **TEAS test** type) and get live
@@ -110,8 +113,22 @@ Back them up or wipe them any time from **Settings → Your data**.
 
 ## 🛠️ Extending the 3D models
 
-v1 ships interactive, lightweight **CSS-3D** diagrams (recognizable and labeled, but
-stylized — not anatomical scans). To add true 3D meshes later, drop CC0/CC-licensed
-`.glb` files into `models/` (e.g. from the NIH 3D Print Exchange or BodyParts3D) and wire
-a topic entry in `content/data.js`. A WebGL loader (Three.js) can be vendored into
-`js/vendor/` if you go that route.
+The app ships interactive, lightweight **CSS-3D** diagrams (recognizable and labeled,
+but stylized — not anatomical scans). They're intentionally pure CSS so the whole app
+stays a single download that runs fully offline on a phone, with no WebGL library or
+binary model files to fetch.
+
+**Adding a topic or content** is all data-driven:
+
+- **Diagram parts** live in `js/modules/viewer3d.js` under `SPECS[<proc>]`. Each part is a
+  small object (`size`, `x/y/z`, `color`, `label`, `desc`) and an optional `layer` name.
+  Parts that share a `layer` get a toggle chip automatically, so grouping by layer is all
+  it takes to make a structure show/hide.
+- **Educational content** lives in `content/data.js` on each `D.topics` entry: `funFact`,
+  `tip`, and a `questions` array (`{ q, choices, answer, explain }`). These render in the
+  panel beside the diagram and are validated by `tests/content.test.js`.
+
+To add **true 3D meshes** later, drop CC0/CC-licensed `.glb` files into `models/` (e.g.
+from the NIH 3D Print Exchange or BodyParts3D) and reference them from the matching topic's
+`model` field. A WebGL loader (Three.js) can be vendored into `js/vendor/` if you go that
+route — but note it trades away the no-download, fully-offline property above.

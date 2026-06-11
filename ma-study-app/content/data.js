@@ -39,16 +39,83 @@
   ];
 
   /* ---- 3D anatomy topics. `model` points at models/<file>.glb if bundled;
-     the viewer renders a labeled procedural model when a GLB is absent. ---- */
+     the viewer renders a labeled, layer-toggleable procedural model when a GLB
+     is absent. Each topic also carries a fun fact, a need-to-know tip, and
+     accuracy-checked practice questions surfaced beside the diagram. ---- */
   D.topics = [
-    { id: "heart", name: "Heart", emoji: "🫀", model: "heart.glb", proc: "heart", deck: "anatomy", blurb: "Four chambers, valves, and the path of blood flow through the cardiovascular system." },
-    { id: "skeleton", name: "Skeletal System", emoji: "🦴", model: "skeleton.glb", proc: "skeleton", deck: "anatomy", blurb: "206 bones forming the axial and appendicular skeleton." },
-    { id: "skull", name: "Skull", emoji: "💀", model: "skull.glb", proc: "skull", deck: "anatomy", blurb: "Cranial and facial bones protecting the brain." },
-    { id: "lungs", name: "Respiratory", emoji: "🫁", model: "lungs.glb", proc: "lungs", deck: "anatomy", blurb: "Airways and lungs that exchange oxygen and carbon dioxide." },
-    { id: "brain", name: "Brain", emoji: "🧠", model: "brain.glb", proc: "brain", deck: "anatomy", blurb: "Cerebrum, cerebellum, and brainstem of the central nervous system." },
-    { id: "cell", name: "Animal Cell", emoji: "🦠", model: "cell.glb", proc: "cell", deck: "teas-science", blurb: "Organelles: nucleus, mitochondria, ER, and more — core TEAS science." },
-    { id: "kidney", name: "Kidney", emoji: "🫘", model: "kidney.glb", proc: "kidney", deck: "anatomy", blurb: "Filters blood and forms urine in the urinary system." },
-    { id: "dna", name: "DNA", emoji: "🧬", model: "dna.glb", proc: "dna", deck: "teas-science", blurb: "The double helix carrying genetic information." }
+    {
+      id: "heart", name: "Heart", emoji: "🫀", model: "heart.glb", proc: "heart", deck: "anatomy",
+      blurb: "Four chambers, valves, and the path of blood flow through the cardiovascular system.",
+      funFact: "Your heart beats about 100,000 times a day, yet it's only about the size of your clenched fist.",
+      tip: "Trace the path of blood: right atrium → right ventricle → lungs → left atrium → left ventricle → body. Know systemic vs. pulmonary circulation.",
+      questions: [
+        { q: "Blood leaves the right ventricle and enters the:", choices: ["Aorta", "Pulmonary artery", "Left atrium", "Vena cava"], answer: 1, explain: "The right ventricle pumps oxygen-poor blood into the pulmonary artery, which carries it to the lungs." },
+        { q: "Which chamber of the heart receives deoxygenated blood from the body?", choices: ["Left atrium", "Left ventricle", "Right atrium", "Right ventricle"], answer: 2, explain: "The right atrium receives oxygen-poor blood returning from the body through the vena cava." }
+      ]
+    },
+    {
+      id: "skeleton", name: "Skeletal System", emoji: "🦴", model: "skeleton.glb", proc: "skeleton", deck: "anatomy",
+      blurb: "206 bones forming the axial and appendicular skeleton.",
+      funFact: "Babies are born with about 300 bones, but adults have only 206 — many fuse together as you grow.",
+      tip: "Split the skeleton into axial (skull, spine, rib cage) and appendicular (limbs and girdles), and know compact vs. spongy bone.",
+      questions: [
+        { q: "Which of the following is NOT a function of the skeletal system?", choices: ["Mineral storage", "Hormone production", "Protection of organs", "Support for the body"], answer: 1, explain: "Hormone production belongs to the endocrine system. Bone supports, protects, enables movement, stores minerals, and makes blood cells." }
+      ]
+    },
+    {
+      id: "skull", name: "Skull", emoji: "💀", model: "skull.glb", proc: "skull", deck: "anatomy",
+      blurb: "Cranial and facial bones protecting the brain.",
+      funFact: "The only movable bone in the skull is the mandible — your jawbone.",
+      tip: "Learn the major cranial sutures (coronal, sagittal, lambdoid) and where they meet.",
+      questions: [
+        { q: "The bone that forms the forehead is the:", choices: ["Parietal bone", "Temporal bone", "Frontal bone", "Occipital bone"], answer: 2, explain: "The frontal bone forms the forehead and the upper part of the eye sockets." }
+      ]
+    },
+    {
+      id: "lungs", name: "Respiratory", emoji: "🫁", model: "lungs.glb", proc: "lungs", deck: "anatomy",
+      blurb: "Airways and lungs that exchange oxygen and carbon dioxide.",
+      funFact: "Spread flat, the alveoli in your lungs would cover roughly the area of a tennis court.",
+      tip: "Understand breathing mechanics: the diaphragm contracts and flattens to pull air in, then relaxes to push it out.",
+      questions: [
+        { q: "Gas exchange in the lungs occurs in the:", choices: ["Bronchi", "Trachea", "Alveoli", "Larynx"], answer: 2, explain: "Alveoli are tiny air sacs wrapped in capillaries where oxygen and carbon dioxide cross into and out of the blood." }
+      ]
+    },
+    {
+      id: "brain", name: "Brain", emoji: "🧠", model: "brain.glb", proc: "brain", deck: "anatomy",
+      blurb: "Cerebrum, cerebellum, and brainstem of the central nervous system.",
+      funFact: "The brain weighs about 3 pounds but uses roughly 20% of your body's oxygen and calories.",
+      tip: "Separate the central nervous system (brain + spinal cord) from the peripheral nervous system (all other nerves).",
+      questions: [
+        { q: "The part of the brain responsible for balance and coordination is the:", choices: ["Cerebrum", "Brainstem", "Cerebellum", "Thalamus"], answer: 2, explain: "The cerebellum fine-tunes balance, posture, and coordinated movement." }
+      ]
+    },
+    {
+      id: "cell", name: "Animal Cell", emoji: "🦠", model: "cell.glb", proc: "cell", deck: "teas-science",
+      blurb: "Organelles: nucleus, mitochondria, ER, and more — core TEAS science.",
+      funFact: "There are roughly 37 trillion cells in the human body.",
+      tip: "Know the primary job of each organelle — especially the nucleus (control center) and mitochondria (energy).",
+      questions: [
+        { q: "Which organelle is known as the 'powerhouse' of the cell?", choices: ["Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus"], answer: 2, explain: "Mitochondria produce ATP, the cell's main energy currency." }
+      ]
+    },
+    {
+      id: "kidney", name: "Kidney", emoji: "🫘", model: "kidney.glb", proc: "kidney", deck: "anatomy",
+      blurb: "Filters blood and forms urine in the urinary system.",
+      funFact: "Your kidneys filter about 1 liter of blood every minute, cleaning all of your blood many times a day.",
+      tip: "The nephron is the functional unit of the kidney — each kidney holds about a million of them.",
+      questions: [
+        { q: "The primary function of the nephron is:", choices: ["Hormone production", "Blood cell formation", "Filtering blood and forming urine", "Storing bile"], answer: 2, explain: "Nephrons filter the blood and produce urine — the core job of the kidney." }
+      ]
+    },
+    {
+      id: "dna", name: "DNA", emoji: "🧬", model: "dna.glb", proc: "dna", deck: "teas-science",
+      blurb: "The double helix carrying genetic information.",
+      funFact: "Uncoiled, the DNA in a single one of your cells is about 2 meters (6 feet) long — yet it fits inside a microscopic nucleus.",
+      tip: "Remember complementary base pairing: Adenine (A) pairs with Thymine (T), and Guanine (G) pairs with Cytosine (C).",
+      questions: [
+        { q: "Which of the following is a complementary base pair in DNA?", choices: ["Adenine and Guanine", "Cytosine and Thymine", "Adenine and Thymine", "Guanine and Adenine"], answer: 2, explain: "In DNA, A always pairs with T, and G always pairs with C." }
+      ]
+    }
   ];
 
   /* ---- BSN / TEAS pathway guides (shown in the Library tab). Markdown bodies. ---- */
