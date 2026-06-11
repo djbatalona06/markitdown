@@ -1,6 +1,6 @@
 /* service-worker.js — precaches the app shell + baked content so the installed
    PWA works fully offline. Library docs and 3D models are cached on first use. */
-var CACHE = "ma-study-v1";
+var CACHE = "ma-study-v2";
 var CORE = [
   "./",
   "index.html",

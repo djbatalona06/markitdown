@@ -51,6 +51,13 @@ ok(Array.isArray(D.topics) && D.topics.length >= 6, "expected >= 6 topics");
 D.topics.forEach(function (t) {
   ok(t.id && t.name && t.proc, "topic missing fields: " + JSON.stringify(t.id));
   if (t.deck) ok(deckIds[t.deck], "topic '" + t.id + "' references missing deck '" + t.deck + "'");
+  // each topic carries educational content shown beside its 3D diagram
+  ok(t.funFact && t.tip, "topic '" + t.id + "' missing funFact/tip");
+  ok(Array.isArray(t.questions) && t.questions.length >= 1, "topic '" + t.id + "' has no practice questions");
+  (t.questions || []).forEach(function (q) {
+    ok(q.q && Array.isArray(q.choices) && q.choices.length >= 2, "bad practice question in topic " + t.id);
+    ok(Number.isInteger(q.answer) && q.answer >= 0 && q.answer < q.choices.length, "answer index out of range in topic " + t.id);
+  });
 });
 
 // ---- guides + refs (library) ----
