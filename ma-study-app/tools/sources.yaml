@@ -1,0 +1,52 @@
+# sources.yaml — curated, openly-licensed / public medical references to pull into
+# the offline Library. Keep to reputable, open sources. Respect each site's terms.
+#
+# Each entry: a title, a URL, a category, and the license/source note.
+# fetch_docs.py downloads these; convert_docs.py turns them into library/*.md.
+#
+# NOTE: Many of these are large or paginated. Add the specific article/chapter URLs
+# you want rather than whole sites. "as much as possible" responsibly = a focused,
+# high-quality set, not a blind crawl.
+
+sources:
+  # --- Anatomy & Physiology (OpenStax, CC BY 4.0) ---
+  - title: "OpenStax: Anatomy & Physiology (open textbook)"
+    url: "https://openstax.org/details/books/anatomy-and-physiology-2e"
+    category: "Anatomy & Physiology"
+    license: "CC BY 4.0 (OpenStax)"
+
+  # --- Consumer health (MedlinePlus, U.S. public domain) ---
+  - title: "MedlinePlus: Vital Signs"
+    url: "https://medlineplus.gov/vitalsigns.html"
+    category: "Clinical"
+    license: "Public domain (U.S. NLM)"
+  - title: "MedlinePlus: Blood, Heart and Circulation"
+    url: "https://medlineplus.gov/bloodheartandcirculation.html"
+    category: "Anatomy & Physiology"
+    license: "Public domain (U.S. NLM)"
+
+  # --- Infection control (CDC, U.S. public domain) ---
+  - title: "CDC: Standard Precautions for All Patient Care"
+    url: "https://www.cdc.gov/infection-control/hcp/basics/standard-precautions.html"
+    category: "Safety"
+    license: "Public domain (U.S. CDC)"
+  - title: "CDC: Clinical Hand Hygiene"
+    url: "https://www.cdc.gov/clean-hands/hcp/clinical-safety/"
+    category: "Safety"
+    license: "Public domain (U.S. CDC)"
+
+  # --- Nursing pathway / TEAS (informational) ---
+  - title: "BLS: Registered Nurses — Occupational Outlook"
+    url: "https://www.bls.gov/ooh/healthcare/registered-nurses.htm"
+    category: "Pathway"
+    license: "Public domain (U.S. BLS)"
+  - title: "BLS: Medical Assistants — Occupational Outlook"
+    url: "https://www.bls.gov/ooh/healthcare/medical-assistants.htm"
+    category: "Pathway"
+    license: "Public domain (U.S. BLS)"
+
+# Sources that commonly block plain HTTP requests can be fetched through CloakBrowser
+# (set use_cloak: true). Only use this for sites whose terms permit your access.
+cloak_if_blocked: true
+user_agent: "MAStudyApp/1.0 (+personal study use)"
+delay_seconds: 2   # be polite between requests
