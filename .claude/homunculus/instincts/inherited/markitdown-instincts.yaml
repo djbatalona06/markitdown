@@ -1,0 +1,297 @@
+# Instincts generated from https://github.com/djbatalona06/markitdown
+# Generated: 2026-06-08T04:24:24.359Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: markitdown-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/djbatalona06/markitdown
+---
+
+# Markitdown Commit Length
+
+## Action
+
+Write moderate-length commit messages (~58 characters)
+
+## Evidence
+
+- Average commit message length: 58 chars
+- Based on 1 commits
+
+---
+id: markitdown-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/djbatalona06/markitdown
+---
+
+# Markitdown Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: markitdown-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/djbatalona06/markitdown
+---
+
+# Markitdown Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: markitdown-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/djbatalona06/markitdown
+---
+
+# Markitdown Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: markitdown-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/djbatalona06/markitdown
+---
+
+# Markitdown Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: markitdown-instinct-camelcase-files
+trigger: "When creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Camelcase Files
+
+## Action
+
+Name the file using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.files: camelCase
+
+---
+id: markitdown-instinct-camelcase-functions
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Camelcase Functions
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: markitdown-instinct-pascalcase-classes
+trigger: "When creating a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Pascalcase Classes
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: markitdown-instinct-screaming-constants
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Screaming Constants
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: markitdown-instinct-relative-imports
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Relative Imports
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: markitdown-instinct-named-exports
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Named Exports
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: markitdown-instinct-try-catch-errors
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style: try-catch
+
+---
+id: markitdown-instinct-commit-freeform
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Commit Freeform
+
+## Action
+
+Write a freeform message without a prefix, describing the change in a single sentence
+
+## Evidence
+
+- Pattern in commits.type: freeform
+- Example: 'Add MA Study: offline PWA study app for Medical Assistants'
+
+---
+id: markitdown-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 58 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 58
+
+---
+id: markitdown-instinct-test-location
+trigger: "When adding tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: djbatalona06/markitdown
+---
+
+# Markitdown Instinct Test Location
+
+## Action
+
+Place test files in a separate folder from source code
+
+## Evidence
+
+- Pattern in architecture.testLocation: separate
+
